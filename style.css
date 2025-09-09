@@ -1,0 +1,20 @@
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      padding: 20px;
+    }
+    h2 {
+      color: #333;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 10px 0;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.345);
+    }
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+    }

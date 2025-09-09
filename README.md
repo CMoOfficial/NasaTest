@@ -1,3 +1,1 @@
 # NasaTest
-
-Hugo Roberto Gutierrez
