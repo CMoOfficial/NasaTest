@@ -1,20 +1,34 @@
-const apiUrl = "https://dummyjson.com/users/1";
+const apiUrl = "https://dummyjson.com/products/category/smartphones";
 
-async function getUsuario() {
+async function mostrarPrecios() {
     const response = await fetch(apiUrl);
-    const usuario = await response.json();
+    const data = await response.json();
 
-    const ul = document.getElementById("usuarios");
+    // Tomar los primeros 3 productos
+    const primerosTres = data.products.slice(0, 3);
+
+    // Obtener los precios y sumarlos
+    const precios = primerosTres.map(producto => producto.price);
+    const total = precios.reduce((acc, precio) => acc + precio, 0);
+
+    // Mostrar los precios y el total
+    const ul = document.getElementById("data");
     if (!ul) {
-        console.error('No se encontró el elemento con id "usuarios"');
+        console.error('No se encontró el elemento con id "data"');
         return;
     }
 
-    const li = document.createElement("li");
-    li.textContent = `Nombre: ${usuario.firstName} ${usuario.lastName} | Correo: ${usuario.email} | Edad: ${usuario.age} | Role: ${usuario.role}`;
-    ul.appendChild(li);
+    primerosTres.forEach((producto, i) => {
+        const li = document.createElement("li");
+        li.textContent = `Producto: ${producto.title} | Precio: $${producto.price}`;
+        ul.appendChild(li);
+    });
 
-    console.log(usuario);
+    const liTotal = document.createElement("li");
+    liTotal.textContent = `Total de los primeros 3 precios: $${total}`;
+    ul.appendChild(liTotal);
+
+    console.log({ precios, total });
 }
 
-getUsuario();
+mostrarPrecios();
