@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Prueba API DummyJSON</title>
+</head>
+<body>
+
+  <p id="nombre"></p>
+  <p id="correo"></p>
+  <p id="edad"></p>
+  <p id="rol"></p>
+
+  <script>
+    fetch("https://dummyjson.com/users/1")
+      .then(r => r.json())
+      .then(usuario => {
+  
+        document.getElementById("nombre").textContent = usuario.firstName + " " + usuario.lastName;  
+        document.getElementById("correo").textContent = "Correo: " + usuario.email;
+        document.getElementById("edad").textContent = "Edad: " + usuario.age;
+        document.getElementById("rol").textContent = "Usuario: " + usuario.username;
+        
+
+      })
+      .catch(err => console.error("Error:", err));
+  </script>
+</body>
+</html>
