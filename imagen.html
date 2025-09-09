@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Nasa</title>
+</head>
+<img>
+    <h1>Imagen</h1>
+    <img src="https://dummyjson.com/image/400x200/008080/ff0000?text=Hello+UMG"></img>
+    <p id="nombre"></p>
+
+</body>
+<script>
+
+    async function prueba(){
+    const response = await fetch('https://dummyjson.com/users/1');
+    const data = await response.json();
+    
+    console.log(data.firstName);
+    console.log(data.email);
+    console.log(data.age);
+    console.log(data.role);
+    return data;
+}
+
+prueba();
+</script>
+
+</html>
